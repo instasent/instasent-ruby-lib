@@ -18,7 +18,7 @@ gem 'instasent'
 
 ## Example
 ### Send an SMS
-You can check 'examples/send-sms.py' file.
+You can check 'examples/send-sms.rb' file.
 ```ruby
 require 'instasent'
 
@@ -31,9 +31,24 @@ puts response['response_body']
 ```
 ## Available functions
 ```
+SMS
 client.send_sms(sender, to, text)
 client.get_sms(page, per_page)
 client.get_sms_by_id(message_id)
+
+VERIFY
+client.request_verify(sender, to, text); // text must include %token% string
+client.check_verify(id, token)
+client.get_verify_by_id(id)
+client.get_verify(page, per_page)
+
+LOOKUP
+client.do_lookup(to)
+client.get_lookup_by_id(id)
+client.get_lookups(page, per_page)
+
+ACCOUNT
+client.get_account_balance()
 ```
 ## Documentation
 Complete documentation at :

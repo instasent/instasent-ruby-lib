@@ -17,7 +17,7 @@ module Instasent
 
       data = {'from' => sender, 'to' => to, 'text' => text}
 
-      self.execute_request(url, http_method, data)
+      execute_request(url, http_method, data)
     end
 
     def get_sms(page=1, per_page=10)
@@ -25,7 +25,7 @@ module Instasent
 
       http_method = 'GET'
 
-      self.execute_request(url, http_method)
+      execute_request(url, http_method)
     end
 
     def get_sms_by_id(id)
@@ -33,7 +33,7 @@ module Instasent
 
       http_method = 'GET'
 
-      self.execute_request(url, http_method)
+      execute_request(url, http_method)
     end
 
     def request_verify(sender, to, text, token_length = '', timeout = '', client_id='')
@@ -54,7 +54,7 @@ module Instasent
       #   data['clientId'] =  client_id
       # end
 
-      self.execute_request(url, http_method, data)
+      execute_request(url, http_method, data)
     end
 
     def check_verify(id, token)
@@ -62,7 +62,7 @@ module Instasent
 
       http_method = 'GET'
 
-      self.execute_request(url, http_method, {})
+      execute_request(url, http_method, {})
     end
 
     def get_verify_by_id(id)
@@ -70,7 +70,7 @@ module Instasent
 
       http_method = 'GET'
 
-      self.execute_request(url, http_method, {})
+      execute_request(url, http_method, {})
     end
 
     def get_verify(page=1, per_page=10)
@@ -78,7 +78,7 @@ module Instasent
 
       http_method = 'GET'
 
-      self.execute_request(url, http_method)
+      execute_request(url, http_method)
     end
 
     def do_lookup(to)
@@ -86,13 +86,13 @@ module Instasent
       http_method = 'POST'
       data = {'to' => to}
 
-      self.execute_request(url, http_method, data)
+      execute_request(url, http_method, data)
     end
 
     def get_lookup_by_id(id)
       url =  @@secureChannel + 'lookup/' + id
       http_method = 'GET'
-      self.execute_request(url, http_method, {})
+      execute_request(url, http_method, {})
     end
 
     def get_lookups(page=1, per_page=10)
@@ -100,13 +100,13 @@ module Instasent
 
       http_method = 'GET'
 
-      self.execute_request(url, http_method)
+      execute_request(url, http_method)
     end
 
     def get_account_balance
       url =  @@secureChannel + 'organization/account/'
       http_method = 'GET'
-      self.execute_request(url, http_method, {})
+      execute_request(url, http_method, {})
     end
 
     private

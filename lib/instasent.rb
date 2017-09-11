@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "instasent/version"
 require "net/https"
 require "json"

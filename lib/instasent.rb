@@ -4,7 +4,6 @@ require "json"
 
 module Instasent
   class Client
-
     @@secureChannel = "https://api.instasent.cdfom/"
 
     def initialize(token)
@@ -12,7 +11,6 @@ module Instasent
     end
 
     def send_sms(sender, to, text, client_id='')
-
       url = @@secureChannel + "sms/"
 
       http_method = 'POST'
@@ -22,11 +20,9 @@ module Instasent
       response = self.execute_request(url, http_method, data)
 
       return response
-
     end
 
     def get_sms(page=1, per_page=10)
-
       url = @@secureChannel + "sms/?page=" + page.to_s + "per_page=" + per_page.to_s
 
       http_method = 'GET'
@@ -34,11 +30,9 @@ module Instasent
       response = self.execute_request(url, http_method)
 
       return response
-
     end
 
     def get_sms_by_id(id)
-
       url = @@secureChannel + 'sms/' + id
 
       http_method = 'GET'
@@ -46,11 +40,9 @@ module Instasent
       response = self.execute_request(url, http_method)
 
       return response
-
     end
 
     def send_sms(sender, to, text, client_id='')
-
       url = @@secureChannel + "sms/"
 
       http_method = 'POST'
@@ -60,11 +52,9 @@ module Instasent
       response = self.execute_request(url, http_method, data)
 
       return response
-
     end
 
     def request_verify(sender, to, text, token_length = '', timeout = '', client_id='')
-
       url = @@secureChannel + "verify/"
 
       http_method = 'POST'
@@ -85,11 +75,9 @@ module Instasent
       response = self.execute_request(url, http_method, data)
 
       return response
-
     end
 
     def check_verify(id, token)
-
       url = @@secureChannel + 'verify/' + id + '?token=' + token
 
       http_method = 'GET'
@@ -97,11 +85,9 @@ module Instasent
       response = self.execute_request(url, http_method, {})
 
       return response
-
     end
 
     def get_verify_by_id(id)
-
       url = @@secureChannel + 'verify/' + id
 
       http_method = 'GET'
@@ -109,11 +95,9 @@ module Instasent
       response = self.execute_request(url, http_method, {})
 
       return response
-
     end
 
     def get_verify(page=1, per_page=10)
-
       url = @@secureChannel + 'verify/?page=' + page.to_s + 'per_page=' + per_page.to_s
 
       http_method = 'GET'
@@ -121,11 +105,9 @@ module Instasent
       response = self.execute_request(url, http_method)
 
       return response
-
     end
 
     def do_lookup(to)
-
       url =  @@secureChannel + 'lookup/'
       http_method = 'POST'
       data = {'to' => to}
@@ -133,21 +115,17 @@ module Instasent
       response = self.execute_request(url, http_method, data)
 
       return response
-
     end
 
     def get_lookup_by_id(id)
-
       url =  @@secureChannel + 'lookup/' + id
       http_method = 'GET'
       response = self.execute_request(url, http_method, {})
 
       return response
-
     end
 
     def get_lookups(page=1, per_page=10)
-
       url = @@secureChannel + 'lookup/?page=' + page.to_s + 'per_page=' + per_page.to_s
 
       http_method = 'GET'
@@ -155,21 +133,17 @@ module Instasent
       response = self.execute_request(url, http_method)
 
       return response
-
     end
 
     def get_account_balance
-
       url =  @@secureChannel + 'organization/account/'
       http_method = 'GET'
       response = self.execute_request(url, http_method, {})
 
       return response
-
     end
 
     def execute_request(url='', http_method='', data='')
-
       url_parsed = URI.parse(url)
 
       if http_method=='GET'
@@ -188,10 +162,6 @@ module Instasent
       }
 
       return {'response_body' => res.body, 'response_code' => res.code}
-
     end
-
   end
-
-
 end

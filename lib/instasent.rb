@@ -109,6 +109,8 @@ module Instasent
       self.execute_request(url, http_method, {})
     end
 
+    private
+
     def execute_request(url='', http_method='', data='')
       url_parsed = URI.parse(url)
 

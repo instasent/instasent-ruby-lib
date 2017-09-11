@@ -36,16 +36,6 @@ module Instasent
       self.execute_request(url, http_method)
     end
 
-    def send_sms(sender, to, text, client_id='')
-      url = @@secureChannel + "sms/"
-
-      http_method = 'POST'
-
-      data = {'from' => sender, 'to' => to, 'text' => text}
-
-      self.execute_request(url, http_method, data)
-    end
-
     def request_verify(sender, to, text, token_length = '', timeout = '', client_id='')
       url = @@secureChannel + "verify/"
 

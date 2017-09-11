@@ -1,4 +1,4 @@
-Welcome to __Instasent Ruby SDK__. This repository contains Instasent's Python SDK and samples for REST API.
+Welcome to __Instasent Ruby SDK__. This repository contains Instasent's Ruby SDK and samples for REST API.
 
 ## Installation
 

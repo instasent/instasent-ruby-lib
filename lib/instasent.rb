@@ -4,7 +4,7 @@ require "json"
 
 module Instasent
   class Client
-    @@secureChannel = "https://api.instasent.cdfom/"
+    @@secureChannel = "https://api.instasent.com/"
 
     def initialize(token)
       @@token = token

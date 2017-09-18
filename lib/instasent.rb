@@ -127,7 +127,7 @@ module Instasent
       req.add_field("Accept", "application/json")
       req.add_field("Content-Type", "application/json")
 
-      res = Net::HTTP.start(url_parsed.host, url_parsed.port) { |http|
+      res = Net::HTTP.start(url_parsed.host, url_parsed.port, use_ssl: true) { |http|
         http.request(req)
       }
 

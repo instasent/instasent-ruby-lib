@@ -22,6 +22,16 @@ module Instasent
       execute_request(url, http_method, data)
     end
 
+    def send_sms_unicode(sender, to, text, client_id='')
+      url = @@secureChannel + "sms/"
+
+      http_method = 'POST'
+
+      data = {'from' => sender, 'to' => to, 'text' => text, 'allowUnicode' => 'true'}
+
+      execute_request(url, http_method, data)
+    end
+
     def get_sms(page=1, per_page=10)
       url = @@secureChannel + "sms/?page=" + page.to_s + "per_page=" + per_page.to_s
 

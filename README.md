@@ -1,46 +1,60 @@
-Welcome to __Instasent Ruby SDK__. This repository contains Instasent's Ruby SDK and samples for REST API.
+Welcome to __Instasent Ruby SDK__. This repository contains Ruby SDK for Instasent's REST API.
+
+# Notice!
+
+> **Verify** product is currently deprecated and will be removed in the next release. The same functionality can be easily implemented by sending an SMS. If you need help migrating please contact usage
 
 ## Installation
 
-The easiest way to install the instasent package is either via command line:
+The easiest way to install the SDK is via gem:
 
 ```
-$ gem install instasent
+gem install instasent
 ```
+
 And then execute:
 
-    $ bundle
+```
+bundle
+```
+
 or including the following in your Gemfile:
 
 ```
 gem 'instasent'
 ```
 
-## Example
-### Send an SMS
-You can check 'examples/send-sms.rb' file.
+# Usage
+
+Check the [examples directory](https://github.com/instasent/instasent-ruby-lib/tree/master/examples) to see working examples of this SDK usage
+
+### Sending an SMS
+
 ```ruby
 require 'instasent'
 
 client = Instasent::Client.new('my-token')
 
-response = client.send_sms('My company', '+34666666666', 'test message')
+response = client.send_sms('Company', '+34666666666', 'test message')
 
 puts response['response_code']
 puts response['response_body']
 ```
-## Available functions
+
+If you want to send an Unicode SMS (i.e with 😀 emoji) you only need to replace `send_sms` call to `send_sms_unicode`
+
+```ruby
+response = client.send_sms_unicode('Company', '+34666666666', 'Unicode test: ña éáíóú 😀')
+```
+
+## Available actions
+
 ```
 SMS
 client.send_sms(sender, to, text)
+client.send_sms_unicode(sender, to, text)
 client.get_sms(page, per_page)
 client.get_sms_by_id(message_id)
-
-VERIFY
-client.request_verify(sender, to, text); // text must include %token% string
-client.check_verify(id, token)
-client.get_verify_by_id(id)
-client.get_verify(page, per_page)
 
 LOOKUP
 client.do_lookup(to)
@@ -50,11 +64,13 @@ client.get_lookups(page, per_page)
 ACCOUNT
 client.get_account_balance()
 ```
-## Documentation
-Complete documentation at :
-[http://docs.instasent.com/](http://docs.instasent.com/).
+
+# Full documentation
+
+Full documentation of the API can be found at http://docs.instasent.com/
 
 # Getting help
 
-If you need help installing or using the library, please contact Instasent Support at support@instasent.com first.
-If you've instead found a bug in the library or would like new features added, go ahead and open issues or pull requests against this repo!
+If you need help installing or using the SDK, please contact Instasent Support at support@instasent.com
+
+If you've instead found a bug in the library or have a feature request, go ahead and open an issue or pull request!
